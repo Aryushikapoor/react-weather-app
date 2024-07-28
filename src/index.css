@@ -1,13 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Outfit', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+p {
+  font-size: 1.6rem;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+.app {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  overflow: hidden; /* Ensure pseudo-element is contained */
+}
+
+.app::before {
+  content: '';
+  background: url('./assets/sunset.jpg') no-repeat center center/cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.app .search {
+  text-align: center;
+  padding: 1rem;
+}
+
+.app input {
+  padding: 0.7rem 1.5rem;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+::placeholder {
+  color: #fff;
+}
+
+.container {
+  max-width: 700px;
+  height: auto; /* Flexible height to fit content */
+  margin: auto;
+  padding: 1rem; /* Padding to ensure content is not cut off */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.app .top {
+  width: 100%;
+  margin: 1rem auto;
+}
+
+.app .description {
+  position: relative;
+  right: -90%;
+  transform-origin: 0 0;
+  transform: rotate(269deg);
+}
+
+.app .bottom {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center; /* Vertical centering */
+  text-align: center;
+  width: 100%;
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-top: 14rem; /* Add margin-top to move it down */
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.search {
+  position: relative;
+  width: 100%;
+  max-width: 500px; /* Adjust based on your design */
+  margin: 0 auto; /* Center the search box */
+}
+
+.search input {
+  padding: 0.7rem 2.5rem 0.7rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  width: 100%;
+}
+
+.search .search-icon {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff; /* Adjust color to match your design */
+  font-size: 1.2rem; /* Adjust size if needed */
+}
+
+.search-history {
+  position: absolute;
+  top: 100%; /* Align below the input field */
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  max-height: 200px; /* Limit height to make it scrollable */
+  overflow-y: auto;
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.history-item {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.3s;
+   text-align: left;
+}
+
+.history-item:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
